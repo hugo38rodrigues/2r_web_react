@@ -12,14 +12,14 @@ const Connection = () => {
         <Navigation />
         <div className="form-container">
           <button
-            style={{  background: loginPage ?  null:"salmon" }}
+            style={{  background: loginPage ?  null:"#46beb8" }}
             onClick={() => setLoginPage(false)}
           >
             S'inscrire
           </button>
 
           <button
-            style={{ background: loginPage ? "salmon":null  }}
+            style={{ background: loginPage ? "#46beb8":null  }}
             onClick={() => setLoginPage(true)}
           >
             Se connecter

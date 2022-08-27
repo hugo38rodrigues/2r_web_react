@@ -6,13 +6,10 @@ import Navigation from '../components/Navigations';
 
 
 const Accueil = () => {
- 
-
     return (
         <div className='acceuil'>
             <Navigation />
             <AffichageRessource/>
-
         </div>
     );
 };

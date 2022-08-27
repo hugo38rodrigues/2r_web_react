@@ -8,7 +8,7 @@ const Navigation = () => {
            <div className='picture'>
                 <img src={img} alt="2r"/>
             </div> 
-            <NavLink  exact to="/">
+            <NavLink  exact to="/Acceuil">
                 Acceuil
             </NavLink>
             <NavLink  exact to="/Ressources">
@@ -18,7 +18,7 @@ const Navigation = () => {
                 Contact
             </NavLink>
             
-            <NavLink  exact to="/Connexion">
+            <NavLink  exact to="/">
                 Connexion
             </NavLink> 
         </div>

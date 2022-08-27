@@ -1,5 +1,5 @@
 import React from "react";
-// ! ecrire le code pour envoyer le log 
+// ! ecrire le code pour envoyer le login 
 const Login = () => {
   return (
     <div className="login">
