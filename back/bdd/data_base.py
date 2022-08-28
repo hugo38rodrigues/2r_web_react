@@ -8,7 +8,7 @@ from sqlalchemy_utils import database_exists, create_database, drop_database
 from .table import Base, Privilege, Categorie
 from .requests_data_base import Requests_Data_Base
 
-DEBUG = False
+DEBUG = True
 
 
 class Data_Base(Requests_Data_Base):
@@ -16,7 +16,7 @@ class Data_Base(Requests_Data_Base):
     __instance = None
 
     def __init__(self):
-        self.engine = create_engine(f"mysql+pymysql://root:123456789@localhost/BDD_2R", echo=True)
+        self.engine = create_engine(f"mysql+pymysql://root:root@localhost/BDD_2R", echo=True)
 
         if DEBUG:
             drop_database(self.engine.url)
