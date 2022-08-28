@@ -1,6 +1,7 @@
+from sqlalchemy import select
 from sqlalchemy.orm import sessionmaker
 
-from .table import Privilege, User
+from .table import Privilege, User, Categorie
 
 
 class Requests_Data_Base:
@@ -17,3 +18,8 @@ class Requests_Data_Base:
                          date_naissance=user["date"], email=user["email"], id_privilege=citoyen_priv[0].id))
 
             self.session.commit()
+
+    def get_categorie(self):
+        with self.session.begin():
+            reponse = self.session.execute(select(Categorie)).fetchall()
+            return [res[0] for res in reponse]
