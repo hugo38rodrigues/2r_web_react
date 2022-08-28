@@ -16,6 +16,8 @@ class Data_Base(Requests_Data_Base):
     __instance = None
 
     def __init__(self):
+        self.engine = create_engine(f"mysql+pymysql://root:root@localhost/BDD_2R", echo=True)
+
         if DEBUG:
             drop_database(self.engine.url)
 
