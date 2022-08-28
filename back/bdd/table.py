@@ -15,7 +15,8 @@ class User(Base):
     pseudo = Column(String(50), nullable=False, unique=True)
     date_naissance = Column(Date, nullable=False)
     email = Column(String(100), nullable=False, unique=True)
-    idprivilege = Column(Integer, ForeignKey("privilege.id"))
+    mot_de_passe = Column(String(255), nullable=False)
+    id_privilege = Column(Integer, ForeignKey("privilege.id"))
 
 
 class Privilege(Base):
