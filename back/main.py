@@ -1,11 +1,14 @@
 import os
-from datetime import date
 from pathlib import Path
+working_directory = Path(__file__).parent
+os.chdir(working_directory)
+print("===========================")
+print(working_directory)
+print("===========================")
+from datetime import date
 import api
 from bdd import bdd
 
-working_directory = Path(__file__).parent
-os.chdir(working_directory)
 
 if __name__ == "__main__":
 

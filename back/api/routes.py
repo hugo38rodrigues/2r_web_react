@@ -1,5 +1,4 @@
-from back.bdd import bdd
-
+from ..bdd import bdd
 from flask import Flask
 
 flask_api = Flask(__name__)
