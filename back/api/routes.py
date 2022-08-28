@@ -15,3 +15,8 @@ def get_categories():
 
 def run():
     flask_api.run(host="127.0.0.1", port=5000, debug=True)
+    
+@flask_api.get("/res")
+def get_ressources():
+    reponse =bdd.get_ressources()
+    return {str(indice): {"titre":res.titre, "date":res.date, "id":res.id}for indice,res in enumerate(reponse)}

@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.orm import sessionmaker
 
-from .table import Privilege, User, Categorie
+from .table import Privilege, User, Categorie, Resource
 
 
 class Requests_Data_Base:
@@ -23,3 +23,8 @@ class Requests_Data_Base:
         with self.session.begin():
             reponse = self.session.execute(select(Categorie)).fetchall()
             return [res[0] for res in reponse]
+        
+    def get_ressources(self):
+        with self.session.begin():
+            reponse = self.session.excute(select(Resource)).fetchall()
+            return [res[0] for res in reponse]    
