@@ -18,4 +18,3 @@ if __name__ == "__main__":
         "2": {"nom": "Hugo", "prenom": "R", "date": date(2022, 8, 27), "pseudo": "xmls", "mdp": "4321",
               "email": "HR@ro.com"}}
     bdd.add_users(usersDict)
-
