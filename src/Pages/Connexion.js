@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Login from "../components/Login";
-import Navigation from "../components/Navigations";
 import Signup from "../components/Signup";
 
 const Connection = () => {
