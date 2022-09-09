@@ -5,17 +5,16 @@ import { useState } from "react";
 const Login = () => {
   const [mdp, setMdp] = useState("");
   const [pseudo, setPseudo] = useState("");
-
+  var data = {
+    pseudo: pseudo,
+    mdp: mdp,
+  };
   const handlesubmit = () => {
     console.log(mdp);
     console.log(pseudo);
-    const data_connexion = {
-      pseudo: pseudo,
-      mdp: mdp,
-    };
-
     axios
-      .post("http://127.0.0.1:5000/connexion", data_connexion)
+      .post("http://127.0.0.1:5000/connexion", data)
+      .then((response) => console.log(response))
 
       .catch((error) => console.log("Error: ", error));
   };
