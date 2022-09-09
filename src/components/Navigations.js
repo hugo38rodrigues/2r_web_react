@@ -9,7 +9,7 @@ const Navigation = () => {
         <img src={img} alt="2r" />
       </div>
       <NavLink exact to="/Acceuil">
-        Acceuil
+        Accueil
       </NavLink>
       <NavLink exact to="/Ressources">
         Ressources

@@ -1,49 +1,34 @@
-// TODO corriger les recuperation de POST et mettre l'envois du post dans le bouton "envoyer"
-
 import Navigation from "../components/Navigations";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Ressources = () => {
   const [titre, setTitle] = useState("");
-  const [texte, setText] = useState("");
-  const [categorie, setCategorie] = useState("");
-  const [acces, setAcces] = useState("");
+  const [description, setDescription] = useState("");
+  const [categorie, setCategorie] = useState([]);
   const [date_crea, setDate] = useState("");
-  // const [createur,setCreateur]=useState("");
-
-  const [niveau, setNiveau] = useState([]);
-  const [cat, setCat] = useState([]);
+  const [categoriesend, setCategorieSend] = useState("");
 
   // ? Récupere le ficher json avec une get
   useEffect(() => {
     axios
-      // .get('http://localhost/2r/API/categorie.php')// ! url apache2 théo
-      .get("http://2r/API/categorie") // ! url apache2 maison
-      .then((res) => setCat(res.data));
+      .get("http://127.0.0.1:5000/cat")
+      .then((res) => setCategorie(res.data));
   }, []);
 
-  useEffect(() => {
-    axios
-      .get("http://2r/API/acces") // ! url apache2 théo
-      // .get('http://localhost/2r/API/acces.php')// ! url apache2 maison
-      .then((res) => setNiveau(res.data));
-  }, []);
-
+  // ? poster la ressource
   const handleSubmit = (event) => {
     const post = {
-      createur: 1,
       titre: titre,
-      categorie: categorie,
-      acces: acces,
-      texte: texte,
-      date_crea: date_crea,
+      userid: 1,
+      categorieid: categoriesend,
+      description: description,
+      date: date_crea,
     };
     event.preventDefault();
 
     axios
-      // .post('http://2r/API/ressource',post ) // ! url apache2 théo
-      .post("http://localhost/2r/API/ressource", post) // ! url apache2 maison
+      .post("http://127.0.0.1:5000/ress", post)
       .then((res) => {
         console.log("Status", res.status);
         console.log("Data", res.data);
@@ -66,7 +51,6 @@ const Ressources = () => {
           <input
             type="text"
             name="title"
-            value={titre}
             onChange={(e) => setTitle(e.target.value)}
             required
           ></input>
@@ -75,43 +59,22 @@ const Ressources = () => {
             <label>Catégorie</label>
             <br />
 
-            <select
-              id="cat"
-              value={categorie}
-              onChange={(e) => setCategorie(e.target.value)}
-            >
+            <select id="cat" onChange={(e) => setCategorieSend(e.target.value)}>
               <option value="">Sélectionnez votre catégorie</option>
-              {cat.map((cat) => (
+              {categorie.map((cat) => (
                 <option key={cat.id} value={cat.id}>
-                  {cat.label}
+                  {cat.nom}
                 </option>
               ))}
             </select>
           </div>
           <br />
-          <div className="recup-ressource">
-            <label>Accès à la ressources</label>
-            <br />
-            <select
-              id="rsr"
-              value={acces}
-              onChange={(e) => setAcces(e.target.value)}
-            >
-              <option value="">Sélectionner votre </option>
-              {niveau.map((niveau) => (
-                <option key={niveau.id} value={niveau.id}>
-                  {niveau.label}
-                </option>
-              ))}
-            </select>
-          </div>
           <br />
           <label>Description</label>
           <br />
           <textarea
             name="text"
-            value={texte}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
             rows="10"
             cols="50"
             placeholder="Votre description."
@@ -125,7 +88,6 @@ const Ressources = () => {
           <input
             type="date"
             name="date"
-            value={date_crea}
             onChange={(e) => setDate(e.target.value)}
           ></input>
           <br />

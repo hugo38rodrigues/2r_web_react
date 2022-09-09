@@ -2,30 +2,30 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const AffichageRessource = () => {
-  const [datas, setData] = useState([]);
+  const [ressource, setRess] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/ress").then((res) => setData(res.data));
+    axios.get("http://127.0.0.1:5000/ress").then((res) => setRess(res.data));
   }, []);
 
   return (
     <div className="affichage-ressource">
-      {datas.map((data) => (
-        <div key={data.titre} className="affichage-content">
+      {ressource.map((ress) => (
+        <div key={ress.titre} className="affichage-content">
           <div id="ress">
             <div className="ress">
               <div id="Global">
                 <div id="gauche">
-                  <h1> {data.titre}</h1>
-                  <p className="categorie">{data.categorie}</p>
+                  <h1> {ress.titre}</h1>
+                  <p className="categorie">{ress.categorieid}</p>
                 </div>
                 <div id="droite">
-                  <p className="date_crea">{data.date_crea}</p>
-                  <p className="createur">{data.createur}</p>
+                  <p className="date_crea">{ress.date}</p>
+                  <p className="createur">{ress.pseudo}</p>
                 </div>
               </div>
               <br />
-              <p className="text">{data.texte}</p>
+              <p className="text">{ress.description}</p>
             </div>
           </div>
         </div>
