@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [psswrd, setPassword] = useState("");
@@ -9,6 +10,8 @@ const Signup = () => {
   const [date_naiss, setDate_naiss] = useState("");
   const [email, setEmail] = useState("");
   const [login, setLogin] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const post = {
@@ -27,6 +30,12 @@ const Signup = () => {
         console.log("Status", res.status);
         console.log("Data", res.data);
         console.log(post);
+        if (res.data === "ok") {
+          navigate("/");
+          window.location.reload();
+        } else {
+          setError("error");
+        }
       })
       .catch(({ error }) => {
         console.error("erreur envois enregistrement", error);
@@ -122,6 +131,13 @@ const Signup = () => {
         <br />
 
         <button type="submit"> S'enregistrer</button>
+        {error ? (
+          <p style={{ color: "red", textAlign: "center" }}>
+            Compte déja existant
+          </p>
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );
