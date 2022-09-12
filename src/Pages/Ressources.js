@@ -1,6 +1,7 @@
 import Navigation from "../components/Navigations";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Ressources = () => {
   const [titre, setTitle] = useState("");
@@ -8,6 +9,7 @@ const Ressources = () => {
   const [categorie, setCategorie] = useState([]);
   const [date_crea, setDate] = useState("");
   const [categoriesend, setCategorieSend] = useState("");
+  const navigate = useNavigate();
 
   // ? Récupere le ficher json avec une get
   useEffect(() => {
@@ -30,9 +32,10 @@ const Ressources = () => {
     axios
       .post("http://127.0.0.1:5000/ress", post)
       .then((res) => {
-        console.log("Status", res.status);
-        console.log("Data", res.data);
-        console.log(post);
+        if (res.data === "ok") {
+          navigate("/Acceuil");
+          window.location.reload();
+        }
       })
       .catch(({ error }) => {
         console.error("Something went wrong!", error);
