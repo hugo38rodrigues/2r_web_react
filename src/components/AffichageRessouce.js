@@ -17,7 +17,6 @@ const AffichageRessource = () => {
               <div id="Global">
                 <div id="gauche">
                   <h1> {ress.titre}</h1>
-                  <p className="categorie">{ress.categorieid}</p>
                 </div>
                 <div id="droite">
                   <p className="date_crea">{ress.date}</p>
