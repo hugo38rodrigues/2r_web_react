@@ -19,7 +19,7 @@ const Navigation = () => {
       </NavLink>
 
       <NavLink exact to="/">
-        Connexion
+        Déconnexion
       </NavLink>
     </div>
   );
