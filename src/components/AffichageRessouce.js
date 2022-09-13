@@ -5,7 +5,7 @@ const AffichageRessource = () => {
   const [ressource, setRess] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/ress").then((res) => setRess(res.data));
+    axios.get("http://localhost:5000/ress").then((res) => setRess(res.data));
   }, []);
 
   return (

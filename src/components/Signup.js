@@ -25,7 +25,7 @@ const Signup = () => {
     event.preventDefault();
 
     axios
-      .post("http://127.0.0.1:5000/user", post)
+      .post("http://localhost:5000/user", post)
       .then((res) => {
         console.log("Status", res.status);
         console.log("Data", res.data);

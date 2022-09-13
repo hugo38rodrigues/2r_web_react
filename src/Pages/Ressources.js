@@ -14,7 +14,7 @@ const Ressources = () => {
   // ? Récupere le ficher json avec une get
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/cat")
+      .get("http://localhost:5000/cat")
       .then((res) => setCategorie(res.data));
   }, []);
 
@@ -30,7 +30,7 @@ const Ressources = () => {
     event.preventDefault();
 
     axios
-      .post("http://127.0.0.1:5000/ress", post)
+      .post("http://localhost:5000/ress", post)
       .then((res) => {
         if (res.data === "ok") {
           navigate("/Acceuil");
