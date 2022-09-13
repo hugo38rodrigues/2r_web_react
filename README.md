@@ -71,6 +71,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Apache deployment
 
+### my-httpd.conf
+
+les modules à activer pour faire du https
+...
+#LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+...
+#LoadModule ssl_module modules/mod_ssl.so
+...
+#Include conf/extra/httpd-ssl.conf
+...
+
 ### Build apache image
 
 ```bash
