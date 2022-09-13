@@ -1,0 +1,24 @@
+[
+	 {
+		"id": 1,
+		"titre": "livre",
+		"description":"blabla1",
+		"date":"02/03/2000",
+		"pseudo":"xwdrblue"
+	},
+	 {
+		"id": 2,
+		"titre": "livre",
+		"description":"blabla1",
+		"date":"02/03/2000",
+		"pseudo":"xwdrblue"
+	},
+	 {
+		"id": 3,
+		"titre": "livre",
+		"description":"blabla1",
+		"date":"02/03/2000",
+		"pseudo":"xwdrblue"
+	}
+	 
+]
