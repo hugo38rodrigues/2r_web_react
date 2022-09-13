@@ -78,7 +78,7 @@ docker build -t apache_2r .
 ```
 
 ### Deploy Apache server with frontend
+
 ```bash
-docker run --name apache_2r -d -p 80:80 apache_2r
+docker run --name apache_2r -d -v /home/xwdrblue/server/cert:/usr/local/apache2/conf/ -p 443:443 apache_2r
 ```
- 
