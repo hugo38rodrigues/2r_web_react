@@ -1,0 +1,19 @@
+version: "3" # optional since v1.27.0
+services:
+  BDD:
+    image: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/media/xwdrblue/Disque/projet_2r/server/datadir:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD: "123456789" # ToDo: réparer le docker compose 
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8081:80
+
+  backend:
+    image: backend_2r
+    ports:
+      - 5000:5000
