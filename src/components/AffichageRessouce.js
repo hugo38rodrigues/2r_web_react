@@ -20,7 +20,8 @@ const AffichageRessource = () => {
                 </div>
                 <div id="droite">
                   <p className="date_crea">{ress.date}</p>
-                  <p className="createur">{ress.pseudo}</p>
+                  <p className="user">{ress.email}</p>
+                  <p className="categorie">{ress.nom}</p>
                 </div>
               </div>
               <br />
