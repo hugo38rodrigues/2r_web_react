@@ -6,23 +6,23 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [mdp, setMdp] = useState("");
-  const [pseudo, setPseudo] = useState("");
+  const [email, setemail] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handlesubmit = (event) => {
     event.preventDefault();
     axios
       .post("http://localhost:5000/connexion", {
-        pseudo: pseudo,
+        email: email,
         mdp: md5(mdp),
       })
       .then((response) => {
-        if (response.data === "ok") {
+        if (response.status === 200) {
           navigate("/Acceuil");
           window.location.reload();
         } else {
           setError("error");
-          setPseudo("");
+          setemail("");
           setMdp("");
         }
       })
@@ -35,13 +35,13 @@ const Login = () => {
       <form onSubmit={handlesubmit}>
         <h2>Connexion</h2>
         <br /> <br />
-        <label>Pseudo</label>
+        <label>adresse mail</label>
         <br />
         <input
-          type="text"
-          name="pseudo"
-          value={pseudo}
-          onChange={(e) => setPseudo(e.target.value)}
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setemail(e.target.value)}
         />
         <br />
         <br />
@@ -56,7 +56,7 @@ const Login = () => {
         <br />
         <br />
         <button type="submit">Connexion</button>
-        {error ? <p>Vérifier votre mot de passe ou pseudo !</p> : ""}
+        {error ? <p>Vérifier votre mot de passe ou email !</p> : ""}
       </form>
     </div>
   );

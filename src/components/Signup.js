@@ -5,21 +5,15 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [psswrd, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
-  const [nom, setNom] = useState("");
-  const [prenom, setPrenom] = useState("");
-  const [date_naiss, setDate_naiss] = useState("");
   const [email, setEmail] = useState("");
-  const [login, setLogin] = useState("");
+  const [pseudo, setPseudo] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const post = {
-      nom: nom,
-      prenom: prenom,
-      date: date_naiss,
       email: email,
-      pseudo: login,
+      pseudo: pseudo,
       mdp: psswrd,
     };
     event.preventDefault();
@@ -38,7 +32,7 @@ const Signup = () => {
         }
       })
       .catch(({ error }) => {
-        console.error("erreur envois enregistrement", error);
+        console.error("erreur envoie enregistrement", error);
       });
   };
 
@@ -47,48 +41,15 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <h2>Inscrivez-vous</h2>
 
-        <label>Nom</label>
-        <br />
-        <input
-          type="text"
-          value={nom}
-          onChange={(e) => setNom(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-
-        <label>Prénom</label>
-        <br />
-        <input
-          type="text"
-          value={prenom}
-          onChange={(e) => setPrenom(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-
-        <label>Login</label>
+        <label>Pseudo</label>
         <br />
 
         <input
           type="text"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
+          value={pseudo}
+          onChange={(e) => setPseudo(e.target.value)}
           required
         />
-        <br />
-        <br />
-
-        <label> Date de naissance </label>
-        <br />
-        <input
-          type="date"
-          value={date_naiss}
-          onChange={(e) => setDate_naiss(e.target.value)}
-          required
-        ></input>
         <br />
         <br />
 
