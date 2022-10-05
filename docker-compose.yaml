@@ -7,7 +7,7 @@ services:
     volumes:
       - /home/xwdrblue/database/datadir:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 123456789 
+      MYSQL_ROOT_PASSWORD: 123456789
 
   phpmyadmin:
     image: phpmyadmin
@@ -26,7 +26,7 @@ services:
   Apache_react:
     image: apache_2r
     volumes:
-      - /media/xwdrblue/Disque/projet_2r/server/cert:/etc/ssl
+      - /home/xwdrblue/secondary-hard-drive/projet_2r/server/cert:/etc/ssl
     ports:
       - 443:443
     depends_on:
